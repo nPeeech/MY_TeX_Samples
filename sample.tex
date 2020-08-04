@@ -1,0 +1,105 @@
+\documentclass[a4paper,10.5pt]{jsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+
+% 国際単位系
+\usepackage{siunitx}
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+
+%回路図
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage[european]{circuitikz}
+
+
+\ctikzset{stroke diode}
+\ctikzset{led arrows from cathode}
+
+\begin{document}
+
+
+\section{目的}
+\begin{itemize}
+  \item かじょうがき１
+  \item かじょうがき２
+  \item かじょうがき３
+\end{itemize}
+
+\section{実験装置}
+\begin{itemize}
+  \item かじょうがき１
+  \item かじょうがき２
+\end{itemize}
+
+\section{実験方法}
+\subsection{実験方法の関係}
+\subsubsection{実験方法の関係１}
+じっけんほうほう
+\subsubsection{実験方法の関係２}
+図\ref{fig:よいかいろ１}の回路図の参照．単位を付けるとこう．$E=\SI{5.00}{\volt},R=\SI{220}{\kilo\ohm}$とした．
+\begin{figure}[H]
+  \centering
+    \begin{circuitikz}[european]
+      \draw(0,4) to[battery1,label=$E$] (0,0)
+                to [short](2,0)
+                to [short,*-](2,2)
+                to [pR,mirror,name=pd] (2,4)--(0,4);
+      \draw(2,0) to [short] (3,0)
+                  to [R=$R$](3,3)
+                  to [short](pd.wiper);
+    \end{circuitikz}
+  \caption{よいかいろ１}
+  \label{fig:よいかいろ１}
+  \label{}
+\end{figure}
+
+\subsection{実験特性と実験回路}
+\subsubsection{各実験特性}
+\label{sec:各実験特性}
+図\ref{fig:よいかいろ２}の回路図の参照方法．オームとかはこう$R=\SI{1.0}{\kilo\ohm}$だよ．起電力$E$を$\SI{0}{\volt}$から上昇させる．電流はこう，順電流$I_F$を$\SI{10}{\milli\ampere}$だお．添字付きの電圧だお，$V_F$
+\begin{figure}[H]
+  \centering
+  \begin{circuitikz}[straight voltages]
+    \draw(0,2) to[battery1,l_=$E$,i=$I_F$] (0,0) -- (4,0)
+          (4,2) to [leD,v^<=$V_F$](4,0)
+          (0,2) to [R=$R$] (4,2);
+  \end{circuitikz}
+  
+  \caption{よいかいろ２}
+  \label{fig:よいかいろ２}
+\end{figure}
+
+\subsubsection{各実験回路}
+\label{sec:各実験回路}
+\ref{sec:各実験特性}セクションの参照だよ．図\ref{fig:よいかいろ２}図の参照だよ．$E=\SI{5.00}{\volt},I_F=\SI{10}{\milli\ampere}$電圧電流だよ．$R$抵抗だよおおおおおおおおおおおおおおおおおおおおおおお．
+
+\subsection{実験の動作}
+\subsubsection{実験する入力電圧}
+図\ref{fig:よいかいろ３}の図だよ．$E=\SI{5.00}{\volt}$だよ．$R$抵抗だよ．\ref{sec:各実験回路}セクションの参照だよ．くぁｗせｄｒっｆｔｇｙふじこｌｐ；「’」
+
+だんらく２はこうかくよあｑｓｗでｆｒｇｔｈｙじゅきぉ；ｐ’「くぁｓでｆｒｇｔｈｙじゅきぉ；ｐ’「くぁｗｓでｒｆｔｇｙふじこｌｐ；「’」
+
+\begin{figure}[H]
+  \centering
+  \begin{circuitikz}[european]
+    \draw(0,0) to [battery1,invert,label=$E$] (0,4) ;
+    \draw (0,0) -- (3,0) -- (3,0.75);
+    \draw(1,4) to [pR, *-*, name=pd] (1,0);
+    \draw node[american not port](not) at (3,1) {};
+    \draw (pd.wiper) |- (not.in);
+    \draw (0,4) -- (4,4)
+            to [R=$R$] (4,2)
+            to [leD] (4,1)
+            to [short] (not.out);
+  \end{circuitikz}
+  \caption{よいかいろ３}
+  \label{fig:よいかいろ３}
+\end{figure}
+\end{document}
